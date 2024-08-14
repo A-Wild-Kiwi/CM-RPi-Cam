@@ -4,6 +4,26 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import itertools as it
 import datetime as dt
+import RPi.GPIO as GPIO
+
+#set red,green and blue pins (This is GPIO #, not pin #)
+lowRedPin = 17 
+lowGreenPin = 27
+lowBluePin = 22
+
+#set pins as outputs
+GPIO.setup(lowRedPin,GPIO.OUT)
+GPIO.setup(lowGreenPin,GPIO.OUT)
+GPIO.setup(lowBluePin,GPIO.OUT)
+
+def turnOff():
+    GPIO.output(lowRedPin,0)
+    GPIO.output(lowGreenPin,0)
+    GPIO.output(lowBluePin,0)
+def white():
+    GPIO.output(lowRedPin,1)
+    GPIO.output(lowGreenPin,1)
+    GPIO.output(lowBluePin,1)
 
 """
 #Reference photo
@@ -20,6 +40,7 @@ height = 2464
 
 picam.configure(picam.create_preview_configuration(main={"size":(width, height)},buffer_count=4))
 
+white()
 
 picam.start_preview(Preview.QTGL)
 
@@ -37,6 +58,7 @@ else:
     quit()
 picam.close()
 
+turnOff()
 
 """
 #Scaled Photo for reference
