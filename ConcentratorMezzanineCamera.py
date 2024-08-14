@@ -7,9 +7,9 @@ import datetime as dt
 import RPi.GPIO as GPIO
 
 #set red,green and blue pins (This is GPIO #, not pin #)
-lowRedPin = 17 
-lowGreenPin = 27
-lowBluePin = 22
+lowRedPin = 16
+lowGreenPin = 20
+lowBluePin = 21
 
 #set pins as outputs
 GPIO.setup(lowRedPin,GPIO.OUT)
